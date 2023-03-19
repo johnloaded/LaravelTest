@@ -34,9 +34,9 @@ class VendorController extends Controller
                     if ($count == 0) {
                         $output = str_replace('-', '', $value['macaddress']);
                     }
+                    
                     // todo: strip away separators on d/b and search values to eliminate differing presentations of macaddress
                     $vendor = Vendor::where('macaddress', '=', $value['macaddress'])->first();
-                    //$vendor = Vendor::where(str_replace('-', '', 'macaddress'), '=', str_replace('-', '', $value['macaddress']))->first();
                     if ($vendor !== null) {
                         array_push($vendorsArray, $vendor);
                         $count++;
